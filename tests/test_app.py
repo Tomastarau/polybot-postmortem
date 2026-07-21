@@ -56,3 +56,11 @@ def test_every_chart_has_a_takeaway():
     for chapter in CHAPTERS:
         source = (ROOT / "app" / "chapters" / chapter).read_text()
         assert source.count("ui.figure(") == source.count("takeaway=")
+
+
+@pytest.mark.parametrize("chapter", CHAPTERS)
+@pytest.mark.parametrize("lang", LANGS)
+def test_no_deprecation_warning(chapter, lang):
+    result = run(f"app/chapters/{chapter}", lang)
+    stale = [w.value for w in result.warning if "deprecated" in w.value]
+    assert not stale, f"{chapter} [{lang}]: {stale}"

@@ -12,7 +12,7 @@ def figure(takeaway, fig, table=None, method=None, title=None):
     if title:
         st.subheader(title)
     st.markdown(f"**{takeaway}**")
-    st.plotly_chart(fig, width="stretch")
+    st.plotly_chart(fig)
     if table is not None or method:
         with st.expander(i18n.t("details")):
             if method:
