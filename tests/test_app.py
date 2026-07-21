@@ -64,3 +64,24 @@ def test_no_deprecation_warning(chapter, lang):
     result = run(f"app/chapters/{chapter}", lang)
     stale = [w.value for w in result.warning if "deprecated" in w.value]
     assert not stale, f"{chapter} [{lang}]: {stale}"
+
+
+def test_navigation_registry_matches_the_chapter_files():
+    from app import navigation
+    assert [f"{key}.py" for key in navigation.KEYS] == CHAPTERS
+
+
+def test_navigation_labels_are_short_in_both_languages():
+    from app import navigation
+    for key in navigation.KEYS:
+        for lang in LANGS:
+            label = navigation.label(key, lang)
+            assert label
+            assert len(label.split()) <= 2, f"{key} [{lang}]: {label}"
+
+
+def test_navigation_neighbours_walk_the_whole_story():
+    from app import navigation
+    assert navigation.neighbours(navigation.KEYS[0])[0] is None
+    assert navigation.neighbours(navigation.KEYS[-1])[1] is None
+    assert navigation.neighbours("ch04_weather") == ("ch03_strategies", "ch05_infra")
