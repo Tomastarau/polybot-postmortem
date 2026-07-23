@@ -5,6 +5,7 @@ locked by tests, so the narrative can never drift from the data.
 """
 import pathlib
 
+import numpy as np
 import pandas as pd
 
 DATA = pathlib.Path(__file__).resolve().parent.parent / "data"
@@ -178,4 +179,27 @@ def real_money():
         "redemptions": int((trades["type"] == "REDEEM").sum()),
         "first_day": str(trades["sync_ts"].min())[:10],
         "last_day": str(trades["sync_ts"].max())[:10],
+    }
+
+
+def permutation_pnl(df, iterations=10000, seed=0):
+    """Total P&L if the market price had always been right.
+
+    Each bet wins with the probability the market gave it, which is its entry
+    price. Replaying the bets under that assumption gives the distribution of
+    P&L in the absence of any edge, so the real result can be placed against it
+    instead of being argued about.
+    """
+    price = df["entry_price"].to_numpy()
+    gain = STAKE_USD / price - STAKE_USD
+    rng = np.random.default_rng(seed)
+    won = rng.random((iterations, len(price))) < price
+    simulated = np.where(won, gain, -STAKE_USD).sum(axis=1)
+    observed = float(df["pnl_usd"].sum())
+    return {
+        "simulated": simulated,
+        "observed": round(observed, 2),
+        "percentile": round(float((simulated < observed).mean() * 100), 1),
+        "median": round(float(np.median(simulated)), 2),
+        "std": round(float(simulated.std()), 2),
     }

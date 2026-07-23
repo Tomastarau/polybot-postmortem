@@ -64,3 +64,22 @@ def test_zero_spread_is_not_dropped(trades):
     assert (trades["forecast_spread_c"] == 0.0).sum() > 0
     kept = trades[(trades["entry_price"] <= 0.85) & (trades["forecast_spread_c"] <= 1.0)]
     assert (kept["forecast_spread_c"] == 0.0).sum() > 0
+
+
+def test_pnl_is_indistinguishable_from_the_null_model(trades):
+    """If the market price was always right, +1.12 $ is the expected outcome.
+
+    The bot neither beat nor missed the market: it matched it, which is what
+    having no edge means.
+    """
+    result = analysis.permutation_pnl(trades)
+    assert 40 < result["percentile"] < 60
+    assert result["std"] > 15
+    assert result["observed"] == pytest.approx(1.12, abs=0.01)
+
+
+def test_permutation_is_deterministic(trades):
+    first = analysis.permutation_pnl(trades, iterations=500, seed=7)
+    second = analysis.permutation_pnl(trades, iterations=500, seed=7)
+    assert first["percentile"] == second["percentile"]
+    assert first["median"] == second["median"]
