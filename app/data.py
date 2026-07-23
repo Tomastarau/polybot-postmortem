@@ -89,3 +89,8 @@ def real_money():
 @st.cache_data(show_spinner=False)
 def surviving_filter():
     return analysis.surviving_filter(paper_trades())
+
+
+@st.cache_data(show_spinner=False)
+def null_model():
+    return analysis.permutation_pnl(paper_trades())

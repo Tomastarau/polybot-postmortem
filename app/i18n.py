@@ -101,6 +101,15 @@ UI = {
                       "ses frais. Seule la tranche bon marché dégage un écart positif.",
         "ch8_win_rate": "Taux de réussite",
         "ch8_break_even": "Seuil de rentabilité",
+        "ch8_null_title": "Le résultat réel face au hasard du marché",
+        "ch8_null_takeaway": "On rejoue les 752 paris 10 000 fois en supposant que le prix "
+                             "du marché avait raison. Le résultat réel tombe au centre de "
+                             "la distribution obtenue.",
+        "ch8_null_method": "Chaque pari gagne avec la probabilité que le marché lui donnait, "
+                           "soit son prix d'entrée. 10 000 tirages à graine fixe. Le "
+                           "percentile du résultat réel est verrouillé par "
+                           "`test_pnl_is_indistinguishable_from_the_null_model`.",
+        "ch8_observed": "Résultat réel",
 
         "source": "D'où viennent ces chiffres",
         "source_body": "Tous les nombres de ce site sont calculés à l'exécution depuis les "
@@ -195,6 +204,15 @@ UI = {
                       "opens a positive gap.",
         "ch8_win_rate": "Win rate",
         "ch8_break_even": "Break-even",
+        "ch8_null_title": "The real result against market chance",
+        "ch8_null_takeaway": "The 752 bets are replayed 10,000 times assuming the market "
+                             "price was right. The real result lands in the middle of the "
+                             "resulting distribution.",
+        "ch8_null_method": "Each bet wins with the probability the market gave it, which is "
+                           "its entry price. 10,000 draws at a fixed seed. The percentile of "
+                           "the real result is locked by "
+                           "`test_pnl_is_indistinguishable_from_the_null_model`.",
+        "ch8_observed": "Real result",
 
         "source": "Where these numbers come from",
         "source_body": "Every figure on this site is computed at runtime from the files in "

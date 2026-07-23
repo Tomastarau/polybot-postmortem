@@ -182,3 +182,24 @@ def win_rate_vs_break_even(rows, labels):
     fig.update_layout(bargap=0.5)
     fig.update_yaxes(ticksuffix=" %", range=[60, 100])
     return fig
+
+
+def null_distribution(result, labels):
+    c = theme.palette()
+    fig = go.Figure(go.Histogram(
+        x=result["simulated"],
+        nbinsx=60,
+        marker={"color": c["series_1"], "line": {"width": 1, "color": c["surface"]}},
+        hovertemplate="%{x:.0f} $ · %{y}<extra></extra>",
+    ))
+    fig.add_vline(
+        x=result["observed"],
+        line={"color": c["critical"], "width": 2, "dash": "dot"},
+        annotation_text=f"{labels['observed']} {result['observed']:+.2f} $",
+        annotation_position="top left",
+        annotation_font={"color": c["critical"]},
+    )
+    fig.update_layout(**theme.layout(height=300))
+    fig.update_layout(bargap=0.02)
+    fig.update_xaxes(ticksuffix=" $")
+    return fig

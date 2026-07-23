@@ -15,4 +15,18 @@ ui.figure(
     title=i18n.t("ch8_title"),
 )
 
+null = data.null_model()
+ui.figure(
+    takeaway=i18n.t("ch8_null_takeaway"),
+    fig=charts.null_distribution(null, {"observed": i18n.t("ch8_observed")}),
+    table=pd.DataFrame([{
+        "observed": null["observed"],
+        "median": null["median"],
+        "std": null["std"],
+        "percentile": null["percentile"],
+    }]),
+    method=i18n.t("ch8_null_method"),
+    title=i18n.t("ch8_null_title"),
+)
+
 ui.pager("ch08_verdict")
