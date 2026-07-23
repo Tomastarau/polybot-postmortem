@@ -21,3 +21,5 @@ ui.figure(
     title=i18n.t("ch7_title"),
 )
 st.caption(", ".join(result["blacklist"]))
+
+ui.pager("ch07_overfitting")

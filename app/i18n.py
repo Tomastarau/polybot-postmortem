@@ -14,6 +14,8 @@ UI = {
     "fr": {
         "nav_language": "Langue",
         "chapters": "Chapitres",
+        "previous": "Précédent",
+        "next": "Suivant",
         "details": "Voir les données et la méthode",
         "trades": "Trades papier",
         "pnl": "P&L total",
@@ -108,6 +110,8 @@ UI = {
     "en": {
         "nav_language": "Language",
         "chapters": "Chapters",
+        "previous": "Previous",
+        "next": "Next",
         "details": "See the data and method",
         "trades": "Paper trades",
         "pnl": "Total P&L",

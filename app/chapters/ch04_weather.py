@@ -13,3 +13,5 @@ ui.figure(
     method=i18n.t("ch4_method"),
     title=i18n.t("ch4_title"),
 )
+
+ui.pager("ch04_weather")

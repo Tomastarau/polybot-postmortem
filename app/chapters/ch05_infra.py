@@ -13,3 +13,5 @@ ui.figure(
     method=i18n.t("ch5_method"),
     title=i18n.t("ch5_title"),
 )
+
+ui.pager("ch05_infra")

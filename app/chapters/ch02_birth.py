@@ -13,3 +13,5 @@ ui.figure(
     method=i18n.t("ch2_method"),
     title=i18n.t("ch2_title"),
 )
+
+ui.pager("ch02_birth")

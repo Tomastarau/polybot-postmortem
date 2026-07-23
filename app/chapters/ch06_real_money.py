@@ -20,3 +20,5 @@ ui.figure(
     method=i18n.t("ch6_method"),
     title=i18n.t("ch6_title"),
 )
+
+ui.pager("ch06_real_money")

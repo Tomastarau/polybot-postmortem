@@ -12,3 +12,5 @@ ui.figure(
     method=i18n.t("ch3_method"),
     title=i18n.t("ch3_title"),
 )
+
+ui.pager("ch03_strategies")

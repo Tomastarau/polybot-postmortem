@@ -29,3 +29,5 @@ ui.figure(
 )
 
 st.info(f"**{i18n.t('source')}** — {i18n.t('source_body')}")
+
+ui.pager("ch01_summary")

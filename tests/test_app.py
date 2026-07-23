@@ -16,8 +16,14 @@ LANGS = ["fr", "en"]
 
 
 def run(path, lang):
-    app = AppTest.from_file(str(ROOT / path), default_timeout=120)
+    if path == "streamlit_app.py":
+        app = AppTest.from_file(str(ROOT / path), default_timeout=120)
+        app.session_state["lang"] = lang
+        return app.run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=120)
     app.session_state["lang"] = lang
+    app.run()
+    app.switch_page(path)
     return app.run()
 
 
@@ -85,3 +91,33 @@ def test_navigation_neighbours_walk_the_whole_story():
     assert navigation.neighbours(navigation.KEYS[0])[0] is None
     assert navigation.neighbours(navigation.KEYS[-1])[1] is None
     assert navigation.neighbours("ch04_weather") == ("ch03_strategies", "ch05_infra")
+
+
+@pytest.mark.parametrize("lang", LANGS)
+def test_pager_links_match_position_in_story(lang):
+    from app import navigation
+
+    first = run(f"app/chapters/{navigation.KEYS[0]}.py", lang)
+    first_links = first.get("page_link")
+    assert len(first_links) == 1
+    assert first_links[0].label == f"{navigation.label(navigation.KEYS[1], lang)} →"
+
+    last = run(f"app/chapters/{navigation.KEYS[-1]}.py", lang)
+    last_links = last.get("page_link")
+    assert len(last_links) == 1
+    assert last_links[0].label == f"← {navigation.label(navigation.KEYS[-2], lang)}"
+
+    middle_key = navigation.KEYS[len(navigation.KEYS) // 2]
+    previous_key, following_key = navigation.neighbours(middle_key)
+    middle = run(f"app/chapters/{middle_key}.py", lang)
+    middle_links = middle.get("page_link")
+    assert len(middle_links) == 2
+    assert middle_links[0].label == f"← {navigation.label(previous_key, lang)}"
+    assert middle_links[1].label == f"{navigation.label(following_key, lang)} →"
+
+
+def test_every_chapter_ends_with_a_pager():
+    for chapter in CHAPTERS:
+        source = (ROOT / "app" / "chapters" / chapter).read_text()
+        key = chapter.removesuffix(".py")
+        assert f'ui.pager("{key}")' in source, chapter
