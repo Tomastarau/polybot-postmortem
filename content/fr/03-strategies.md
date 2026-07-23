@@ -5,7 +5,7 @@ Le mois de mai est une succession d'idées essayées puis abandonnées.
 La première s'appelle le **scanner de rendement**. Elle part d'un constat : sur ces
 marchés, certains paris sont pratiquement joués d'avance. Quand il est 20 h et que
 la température maximale du jour est déjà connue, parier « non, il ne fera pas
-9 °C » n'est plus une prédiction, c'est une constatation. Le pari se paie 0,97 et
+9 °C » est une constatation. Le pari se paie 0,97 et
 rapporte 1,00 : 3 % en quelques heures, presque sans risque. Les toutes premières
 traces du bot, le 3 mai, sont 1 322 marchés scannés selon cette logique.
 
@@ -18,7 +18,7 @@ D'où le pivot du 12 mai, résumé par un commit sans ambiguïté : `rm: everyth
 D0 yield`. Tout le reste est supprimé. Le bot ne garde qu'une stratégie : parier
 **avant** que la température soit connue, sur la base des prévisions, contre les
 tranches de température que les modèles jugent improbables. On passe de la
-constatation au pari — et donc du risque nul au vrai risque.
+constatation au pari, et donc du risque nul au vrai risque.
 
 Ce que le graphique ci-dessous montre, c'est la conséquence directe de ce choix :
 un bot qui passe l'écrasante majorité de son temps à refuser de jouer.

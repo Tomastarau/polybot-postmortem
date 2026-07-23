@@ -18,12 +18,11 @@ prises à l'époque, et une règle inscrite noir sur blanc dans les notes du pro
 > La calibration doit être construite avec une date de coupure strictement
 > antérieure à la période de rejeu.
 
-Cette phrase est la chose la plus importante de tout le projet. Sans elle, un
-backtest se contente de vous raconter ce que vous voulez entendre : il utilise,
-pour prédire une journée, des informations qui n'existaient pas encore ce jour-là.
-Les résultats sont magnifiques et parfaitement faux. On appelle ça une fuite de
-données, et c'est la première cause de stratégies qui brillent en simulation et
-meurent en production.
+Sans cette règle, un backtest utilise, pour prédire une journée, des informations
+qui n'existaient pas encore ce jour-là. Les résultats sont faux, mais la courbe
+de performance reste bonne : rien ne signale l'erreur. On appelle ça une fuite de
+données, et c'est la première cause de stratégies qui réussissent en simulation
+et échouent en production.
 
 Le graphique ci-dessous montre ce à quoi ressemblent réellement six semaines de
 développement.

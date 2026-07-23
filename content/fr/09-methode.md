@@ -26,7 +26,7 @@ la résolution officielle de sa ville et de sa date, et on somme.
 Les résolutions étaient enregistrées toutes les cinq minutes : 822 000 lignes pour
 2 392 événements réels. Seul le dernier état de chaque `(ville, date)` est
 conservé. Les relevés on-chain sont dépouillés de l'adresse du portefeuille, du
-pseudonyme et des hachages de transaction — un test échoue si l'un d'eux
+pseudonyme et des hachages de transaction. Un test échoue si l'un d'eux
 réapparaît.
 
 ### Ce qui verrouille les chiffres

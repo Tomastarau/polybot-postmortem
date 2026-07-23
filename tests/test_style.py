@@ -54,3 +54,24 @@ def test_takeaways_have_no_colon(lang):
     guilty = [key for key, value in i18n.UI[lang].items()
               if key.endswith("_takeaway") and ":" in value]
     assert not guilty, f"colon in {lang} takeaway: {guilty}"
+
+
+PROSE_LANGS = ["fr"]
+
+
+def prose_files(lang):
+    return sorted((i18n.CONTENT / lang).glob("*.md"))
+
+
+@pytest.mark.parametrize("lang", PROSE_LANGS)
+def test_prose_has_no_em_dash(lang):
+    guilty = [f.name for f in prose_files(lang)
+              if EM_DASH in f.read_text(encoding="utf-8")]
+    assert not guilty, f"em dash in {lang}: {guilty}"
+
+
+@pytest.mark.parametrize("lang", PROSE_LANGS)
+def test_prose_has_no_antithesis(lang):
+    guilty = [f.name for f in prose_files(lang)
+              if ANTITHESIS[lang].search(f.read_text(encoding="utf-8"))]
+    assert not guilty, f"antithesis in {lang}: {guilty}"

@@ -11,8 +11,8 @@ fait son travail, et meurt.
 
 Ce choix a une conséquence pratique très concrète : comme chaque exécution relit
 sa configuration au démarrage, changer un paramètre ne demande aucun redémarrage
-de service. Basculer le bot en mode simulation, c'est éditer une ligne dans un
-fichier — la prochaine tâche qui se réveille en tient compte. Un programme en
+de service. Basculer le bot en mode simulation consiste à éditer une ligne dans un
+fichier. La prochaine tâche qui se réveille en tient compte. Un programme en
 boucle aurait exigé une gestion de signaux et un rechargement à chaud.
 
 L'autre décision structurante est d'avoir journalisé beaucoup trop. Vingt
@@ -21,8 +21,8 @@ carnet d'ordres, chaque prévision, chaque résolution officielle. Sur le moment
 c'était disproportionné.
 
 C'est pourtant la raison pour laquelle ce site existe. Les analyses qui ont conclu
-le projet — l'overfitting du filtre par ville, la démonstration que le taux de
-réussite ne valait rien — posent des questions que je ne me posais pas au moment
+le projet (l'overfitting du filtre par ville, la démonstration que le taux de
+réussite ne valait rien) posent des questions que je ne me posais pas au moment
 d'écrire ces journaux. **On ne peut analyser que ce qu'on a pensé à enregistrer.**
 Le stockage coûte quelques centimes ; la donnée qu'on n'a pas capturée est perdue
 pour toujours.

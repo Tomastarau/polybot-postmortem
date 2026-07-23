@@ -21,11 +21,10 @@ mauvaise journée, et venait fausser le maximum.
 
 **Et surtout, les degrés.** Onze villes américaines résolvent leurs marchés en
 Fahrenheit ; les prévisions arrivaient en Celsius. Comparées sans conversion,
-elles donnaient une erreur de prévision de 54 degrés — un chiffre si absurde
+elles donnaient une erreur de prévision de 54 degrés, un chiffre si absurde
 qu'il aurait dû sauter aux yeux, et qui est resté invisible tant que personne ne
 regardait la distribution.
 
-C'est ce que montre le graphique ci-dessous, et c'est la leçon la plus utile du
-projet : **une métrique cassée est plus dangereuse qu'une métrique absente**. Une
-métrique absente, on sait qu'on ne l'a pas. Une métrique cassée, on la lit, on lui
-fait confiance, et on prend des décisions avec.
+C'est ce que montre le graphique ci-dessous. Une métrique absente, on sait qu'on ne
+l'a pas. Une métrique cassée, on la lit, on lui fait confiance, et on prend des
+décisions avec.
