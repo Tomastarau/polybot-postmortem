@@ -15,16 +15,15 @@ history in two: May-June to **build** the filter, July to **test** it. The filte
 is calibrated on the first half only, then applied untouched to the second, with
 no readjustment whatsoever.
 
-On the training data the result is spectacular: return climbs from +0.14 % to
-**+7.24 %**. Nine cities excluded, nearly every loss removed, a beautiful curve.
+On the training data the return climbs from +0.14 % to **+7.24 %**. Nine
+cities excluded, nearly every loss removed.
 
-On July, the same filter returns **−0.40 %**. Nothing. Less than nothing.
+On July, the same filter returns **−0.40 %**.
 
-The explanation fits in a sentence: the cities losing money in June were not
-structurally bad cities, they were cities that had had difficult weather **in
-June**. The filter had learned nothing about the world; it had memorised a sample.
-That is the definition of overfitting, and it is all the more insidious here
+The explanation is simple: the cities that were losing in June had had
+difficult weather **in June**. The filter had memorised June's weather. This is
+the very definition of overfitting, and it is all the more insidious here
 because it confirmed an intuition I had held for two months.
 
-A model that agrees with you on the data that produced it teaches you nothing. You
-have to give it the chance to be wrong.
+A test that cannot fail proves nothing. A strategy has to be evaluated on data
+that was not used to build it.

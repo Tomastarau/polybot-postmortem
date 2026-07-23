@@ -18,10 +18,10 @@ project notes:
 > Calibration must be built with a cutoff date strictly earlier than the replay
 > period.
 
-That sentence is the most important thing in the whole project. Without it, a
-backtest simply tells you what you want to hear: to predict a given day it uses
-information that did not exist yet on that day. The results are beautiful and
-completely false. It is called data leakage, and it is the leading cause of
-strategies that shine in simulation and die in production.
+Without this rule, a backtest uses, to predict a given day, information that
+did not exist yet on that day. The results are false, but the performance
+curve stays good: nothing signals the error. It is called data leakage, and it
+is the leading cause of strategies that succeed in simulation and fail in
+production.
 
 The chart below shows what six weeks of development actually looked like.

@@ -20,10 +20,8 @@ and published at 00:10 landed in the wrong day and corrupted the daily maximum.
 
 **And above all, the degrees.** Eleven US cities settle their markets in
 Fahrenheit; forecasts arrived in Celsius. Compared without conversion they
-produced a forecast error of 54 degrees — a number so absurd it should have been
+produced a forecast error of 54 degrees, a number so absurd it should have been
 obvious, and which stayed invisible as long as nobody looked at the distribution.
 
-That is what the chart below shows, and it is the most useful lesson of the
-project: **a broken metric is more dangerous than a missing one**. A missing
-metric, you know you don't have. A broken metric, you read, you trust, and you
-make decisions with.
+That is what the chart below shows. A missing metric, you know you don't have.
+A broken metric, you read, you trust, and you make decisions with.

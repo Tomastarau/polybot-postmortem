@@ -56,7 +56,7 @@ def test_takeaways_have_no_colon(lang):
     assert not guilty, f"colon in {lang} takeaway: {guilty}"
 
 
-PROSE_LANGS = ["fr"]
+PROSE_LANGS = ["fr", "en"]
 
 
 def prose_files(lang):

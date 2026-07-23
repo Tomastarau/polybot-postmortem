@@ -25,7 +25,7 @@ official settlement for its city and date, and summed.
 
 Settlements were recorded every five minutes: 822,000 rows for 2,392 real events.
 Only the final state of each `(city, date)` is kept. On-chain records are stripped
-of wallet address, pseudonym and transaction hashes — a test fails if any of them
+of wallet address, pseudonym and transaction hashes. A test fails if any of them
 reappears.
 
 ### What locks the numbers
